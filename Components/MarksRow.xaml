@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="StudentAttendanceMarks.Components.MarksRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="20" BorderBrush="LightBlue" BorderThickness="0 1 0 1" Padding="0 10">
+
+
+    <UserControl.Resources>
+        <Style x:Key="RedRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <!-- Определяем группу для отображения внутренней точки радиокнопки -->
+                            <Grid x:Name="CheckMarkGrid">
+                                <Ellipse x:Name="Background" Stroke="Red" Fill="Transparent" Width="12" Height="12" />
+                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
+                            </Grid>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения цвета точки при наведении мыши -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="PaleVioletRed" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="Red" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="YellowRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <!-- Определяем группу для отображения внутренней точки радиокнопки -->
+                            <Grid x:Name="CheckMarkGrid">
+                                <Ellipse x:Name="Background" Stroke="DarkOrange" Fill="Transparent" Width="12"
+                                         Height="12" />
+                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
+                            </Grid>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения цвета точки при наведении мыши -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="Orange" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="DarkOrange" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GreenRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <!-- Определяем группу для отображения внутренней точки радиокнопки -->
+                            <Grid x:Name="CheckMarkGrid">
+                                <Ellipse x:Name="Background" Stroke="Green" Fill="Transparent" Width="12" Height="12" />
+                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
+                            </Grid>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения цвета точки при наведении мыши -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="LightGreen" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="Green" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Clip">
+                <Setter.Value>
+                    <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Clip">
+                        <Setter.Value>
+                            <RectangleGeometry Rect="0 0 50 50"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" x:Name="IndexLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Image Grid.Column="1" x:Name="Photo" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ImageStyle}"/>
+        <Label Grid.Column="2" x:Name="FullNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Label Grid.Column="3" x:Name="LastOnlineLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton x:Name="PresentRadioButton" GroupName="{Binding Id}" Margin="0 0 5 0"
+                         Style="{StaticResource GreenRadioButtonStyle}" Click="RadioButton_Click" Tag="0"/>
+            <RadioButton x:Name="LateRadioButton" GroupName="{Binding Id}" Margin="0 0 5 0"
+                         Style="{StaticResource YellowRadioButtonStyle}" Click="RadioButton_Click" Tag="1"/>
+            <RadioButton x:Name="AbsentRadioButton" GroupName="{Binding Id}"
+                         Style="{StaticResource RedRadioButtonStyle}" Click="RadioButton_Click" Tag="2"/>
+        </StackPanel>
+        <ComboBox Grid.Column="5" x:Name="GradesComboBox" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  Width="50"
+                  SelectionChanged="GradesComboBox_OnSelectionChanged">
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>9</ComboBoxItem>
+            <ComboBoxItem>8</ComboBoxItem>
+            <ComboBoxItem>7</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</UserControl>
