@@ -34,7 +34,7 @@
                     <Label Grid.Column="1" HorizontalAlignment="Center" Content="Photo" Foreground="#5d9ded"/>
                     <Label Grid.Column="2" HorizontalAlignment="Center" Content="Name" Foreground="#5d9ded"/>
                     <Label Grid.Column="3" HorizontalAlignment="Center" Content="Last seen online" Foreground="#5d9ded"/>
-                    <Label Grid.Column="4" HorizontalAlignment="Center" Content="Attendance mark" Foreground="#5d9ded"/>
+                    <Label Grid.Column="4" HorizontalAlignment="Center" Content="Mark Presence" Foreground="#5d9ded"/>
                     <Label Grid.Column="5" HorizontalAlignment="Center" Content="Grade" Foreground="#5d9ded"/>
                 </Grid>
                 <StackPanel x:Name="MarksRowsPanel">
