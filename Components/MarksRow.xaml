@@ -15,8 +15,8 @@
                         <Grid>
                             <!-- Определяем группу для отображения внутренней точки радиокнопки -->
                             <Grid x:Name="CheckMarkGrid">
-                                <Ellipse x:Name="Background" Stroke="Red" Fill="Transparent" Width="12" Height="12" />
-                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
+                                <Ellipse x:Name="CheckMark" Stroke="#ef5c60" Fill="Transparent" Width="12" Height="12" />
+
                             </Grid>
                         </Grid>
 
@@ -26,7 +26,7 @@
                                 <Setter TargetName="CheckMark" Property="Fill" Value="PaleVioletRed" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="CheckMark" Property="Fill" Value="Red" />
+                                <Setter TargetName="CheckMark" Property="Fill" Value="#ef5c60" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -40,19 +40,18 @@
                         <Grid>
                             <!-- Определяем группу для отображения внутренней точки радиокнопки -->
                             <Grid x:Name="CheckMarkGrid">
-                                <Ellipse x:Name="Background" Stroke="DarkOrange" Fill="Transparent" Width="12"
+                                <Ellipse x:Name="CheckMark" Stroke="#fefb45" Fill="Transparent" Width="12"
                                          Height="12" />
-                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
                             </Grid>
                         </Grid>
 
                         <ControlTemplate.Triggers>
                             <!-- Триггер для изменения цвета точки при наведении мыши -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="CheckMark" Property="Fill" Value="Orange" />
+                                <Setter TargetName="CheckMark" Property="Fill" Value="#FFFFFD9E" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="CheckMark" Property="Fill" Value="DarkOrange" />
+                                <Setter TargetName="CheckMark" Property="Fill" Value="#FFFEFB45" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -66,8 +65,7 @@
                         <Grid>
                             <!-- Определяем группу для отображения внутренней точки радиокнопки -->
                             <Grid x:Name="CheckMarkGrid">
-                                <Ellipse x:Name="Background" Stroke="Green" Fill="Transparent" Width="12" Height="12" />
-                                <Ellipse x:Name="CheckMark" Fill="Transparent" Width="5" Height="5" />
+                                <Ellipse x:Name="CheckMark" Stroke="#98c463" Fill="Transparent" Width="12" Height="12" />
                             </Grid>
                         </Grid>
 
@@ -77,7 +75,7 @@
                                 <Setter TargetName="CheckMark" Property="Fill" Value="LightGreen" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="CheckMark" Property="Fill" Value="Green" />
+                                <Setter TargetName="CheckMark" Property="Fill" Value="#98c463" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
